@@ -90,7 +90,7 @@ The dashed self-loops are the other half. A duplicate webhook and a replayed dec
 </details>
 
 <details>
-<summary><b>Six Sigma Sports (ST Labs)</b> — SDE-3 — Web3, Jun 2022 — Feb 2025 &nbsp;·&nbsp; <i>Remix, React, CosmJS, Web3Auth, gRPC, TypeScript</i></summary>
+<summary><b>Six Sigma Sports</b> — SDE-3 — Web3, Jun 2022 — Feb 2025 &nbsp;·&nbsp; <i>Remix, React, CosmJS, Web3Auth, gRPC, TypeScript</i></summary>
 
 <br>
 
