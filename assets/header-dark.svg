@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="1000" height="260" role="img" aria-label="Ajay Kumar Singh — Tech Lead and Frontend Architect">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="55%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#1a2a2e" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="vignette" cx="18%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="260" fill="#0a0a0a"/>
+  <rect width="1000" height="260" fill="url(#grid)"/>
+  <rect width="1000" height="260" fill="url(#vignette)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="64" y="86" fill="#3f5a60" font-size="15" letter-spacing="3.5">BENGALURU, INDIA</text>
+
+    <text x="62" y="146" fill="#f4f7f8" font-size="52" font-weight="700" letter-spacing="-1.5"
+          font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+      Ajay Kumar Singh
+    </text>
+
+    <text x="64" y="184" fill="url(#accent)" font-size="19" letter-spacing="1">
+      Tech Lead
+      <tspan fill="#2f4448"> / </tspan><tspan fill="#93a7ac">Frontend Architect</tspan>
+      <tspan fill="#2f4448"> / </tspan><tspan fill="#93a7ac">Full-Stack</tspan>
+    </text>
+
+    <text x="64" y="216" fill="#5b7278" font-size="14.5" letter-spacing=".4">
+      fintech<tspan fill="#2f4448"> · </tspan>web3<tspan fill="#2f4448"> · </tspan>genai<tspan fill="#2f4448"> · </tspan>distributed systems
+    </text>
+  </g>
+
+  <rect x="62" y="160" width="230" height="2" fill="url(#fade)">
+    <animate attributeName="x" values="62;700;62" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values=".25;.9;.25" dur="4.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <g fill="none" stroke="#12333a" stroke-width="1.4">
+    <circle cx="838" cy="130" r="74"/>
+    <circle cx="838" cy="130" r="46"/>
+  </g>
+  <circle cx="838" cy="130" r="7" fill="#06b6d4">
+    <animate attributeName="r" values="6;8.5;6" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".65;1;.65" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <g>
+    <circle r="4.5" fill="#22d3ee">
+      <animateMotion dur="11s" repeatCount="indefinite" path="M838,56 a74,74 0 1,1 -0.1,0"/>
+      <animate attributeName="opacity" values=".45;1;.45" dur="5.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3.2" fill="#0ea5e9">
+      <animateMotion dur="7s" repeatCount="indefinite" path="M838,84 a46,46 0 1,0 0.1,0"/>
+    </circle>
+  </g>
+
+  <rect x="0" y="256" width="1000" height="4" fill="url(#accent)" opacity=".55"/>
+</svg>
