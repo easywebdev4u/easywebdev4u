@@ -54,21 +54,17 @@ The lesson I keep relearning: **in payments, the ledger is the product.** Everyt
 
 Providers do not promise that their webhook arrives after your HTTP response returns. Model it as a state machine that accepts events in any order, or spend your quarters debugging race conditions.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Submitted
-    Submitted --> UnderReview: provider ack
-    Submitted --> UnderReview: webhook first
-    UnderReview --> Approved: decision
-    UnderReview --> Rejected: decision
-    Rejected --> Submitted: user remediates
-    Approved --> Provisioned: wallet created
-    Provisioned --> [*]
-    UnderReview --> UnderReview: duplicate webhook
-    Approved --> Approved: replayed decision
-```
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/easywebdev4u/easywebdev4u/main/assets/state-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/easywebdev4u/easywebdev4u/main/assets/state-light.svg">
+  <img alt="KYC state machine: two entry events reach Under review in either order; duplicate webhooks and replayed decisions are self-loops that change nothing" src="https://raw.githubusercontent.com/easywebdev4u/easywebdev4u/main/assets/state-dark.svg" width="100%">
+</picture>
+</div>
 
-The two self-loops are the whole point. A duplicate webhook and a replayed decision must be no-ops, not errors — otherwise every provider retry becomes an incident.
+Watch the two entry edges: they run on different periods, so across cycles the acknowledgement and the webhook arrive in both orders. That is the requirement, not an edge case.
+
+The dashed self-loops are the other half. A duplicate webhook and a replayed decision must be no-ops, not errors — otherwise every provider retry becomes an incident.
 
 ---
 

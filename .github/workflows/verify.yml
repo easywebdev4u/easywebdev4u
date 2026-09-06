@@ -28,7 +28,7 @@ jobs:
           # structure is not. Catches editing one variant and forgetting the other.
           strip() { grep -oE '<[a-zA-Z/][^ >]*' "$1" | tr -d '<'; }
           status=0
-          for pair in header architecture; do
+          for pair in header architecture state; do
             if diff <(strip "assets/$pair-dark.svg") <(strip "assets/$pair-light.svg") > /dev/null; then
               echo "ok  $pair variants match"
             else
@@ -51,13 +51,6 @@ jobs:
             exit 1
           fi
           echo "ok  README matches generated output"
-
-      - name: Mermaid diagram compiles
-        run: |
-          awk '/^```mermaid$/{f=1;next} /^```$/{f=0} f' README.md > diagram.mmd
-          if [ ! -s diagram.mmd ]; then echo "::error::no mermaid block found"; exit 1; fi
-          npx --yes @mermaid-js/mermaid-cli@11 -i diagram.mmd -o /tmp/diagram.svg
-          echo "ok  mermaid renders"
 
       - name: External links resolve
         run: |
