@@ -11,9 +11,9 @@
 Building products at the intersection of GenAI, Web3, fintech, and great UX
 <!-- END:tagline -->
 
-**[thealchemyst.dev](https://thealchemyst.dev)** &nbsp;·&nbsp; <!-- BEGIN:links -->
-**[linkedin.com/in/ajay-singh-69a083108](https://www.linkedin.com/in/ajay-singh-69a083108/)**
-<!-- END:links --> &nbsp;·&nbsp; **[aksingh1493@gmail.com](mailto:aksingh1493@gmail.com)**
+<!-- BEGIN:links -->
+**[thealchemyst.dev](https://thealchemyst.dev)** &nbsp;·&nbsp; **[linkedin.com/in/ajay-singh-69a083108](https://www.linkedin.com/in/ajay-singh-69a083108/)** &nbsp;·&nbsp; **[easywebdev4u@gmail.com](mailto:easywebdev4u@gmail.com)**
+<!-- END:links -->
 
 </div>
 

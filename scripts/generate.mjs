@@ -24,6 +24,12 @@ const COMPANY_OVERRIDES = {
   PandaMoney: "ZoltMoney", // rebranded; site config still carries the old name
 };
 
+/**
+ * Contact address for this profile. Deliberately not the one in the site
+ * config: the portfolio and this account use different inboxes.
+ */
+const EMAIL = "easywebdev4u@gmail.com";
+
 /** Roles rendered expanded rather than collapsed. */
 const FEATURED = 1;
 
@@ -108,9 +114,18 @@ let out = readFileSync("README.template.md", "utf8");
 out = fill(out, "experience",
   roles.map((r, i) => renderRole(r, i < FEATURED)).join("\n\n"));
 out = fill(out, "stack", renderStack(categories));
+// The whole contact row is generated. It must stay on ONE line and the
+// BEGIN/END markers must sit alone on theirs: a line opening with `<!--`
+// starts a CommonMark HTML block that swallows everything up to and past
+// the closing `-->` on that line, which silently un-renders trailing
+// markdown.
+const SITE = "https://thealchemyst.dev";
+const pretty = (u) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 out = fill(out, "links", [
-  `**[${personal.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}](${personal.linkedin})**`,
-].join(""));
+  `**[${pretty(SITE)}](${SITE})**`,
+  `**[${pretty(personal.linkedin)}](${personal.linkedin})**`,
+  `**[${EMAIL}](mailto:${EMAIL})**`,
+].join(" &nbsp;·&nbsp; "));
 out = fill(out, "tagline", personal.tagline);
 
 const banner = "<!-- Generated from README.template.md by scripts/generate.mjs. Do not edit directly. -->\n";

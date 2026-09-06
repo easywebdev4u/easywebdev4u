@@ -9,8 +9,8 @@
 <!-- BEGIN:tagline -->
 <!-- END:tagline -->
 
-**[thealchemyst.dev](https://thealchemyst.dev)** &nbsp;·&nbsp; <!-- BEGIN:links -->
-<!-- END:links --> &nbsp;·&nbsp; **[aksingh1493@gmail.com](mailto:aksingh1493@gmail.com)**
+<!-- BEGIN:links -->
+<!-- END:links -->
 
 </div>
 

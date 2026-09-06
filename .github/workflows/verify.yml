@@ -52,6 +52,18 @@ jobs:
           fi
           echo "ok  README matches generated output"
 
+      - name: No markdown stranded after an HTML comment
+        run: |
+          # A line opening with `<!--` starts a CommonMark HTML block that runs
+          # through the line carrying `-->`, swallowing any markdown that
+          # follows on it. That renders as literal asterisks and brackets with
+          # no error anywhere. Catch it at the source.
+          if grep -nE '\-\->[[:space:]]*[^[:space:]]' README.template.md README.md; then
+            echo "::error::markdown follows `-->` on the same line and will not render"
+            exit 1
+          fi
+          echo "ok  no trailing markdown after HTML comments"
+
       - name: External links resolve
         run: |
           fail=0
