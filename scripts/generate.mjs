@@ -18,11 +18,9 @@ const RAW = `https://raw.githubusercontent.com/${SITE_REPO}/main`;
 
 /**
  * Display-name overrides applied after loading site config.
- * Remove an entry once the site config itself is corrected.
+ * Empty by design: fix the site config instead of masking it here.
  */
-const COMPANY_OVERRIDES = {
-  PandaMoney: "ZoltMoney", // rebranded; site config still carries the old name
-};
+const COMPANY_OVERRIDES = {};
 
 /**
  * Contact address for this profile. Deliberately not the one in the site
