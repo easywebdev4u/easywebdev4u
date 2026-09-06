@@ -1,4 +1,3 @@
-<!-- Generated from README.template.md by scripts/generate.mjs. Do not edit directly. -->
 <div align="center">
 
 <picture>
@@ -8,11 +7,9 @@
 </picture>
 
 <!-- BEGIN:tagline -->
-Building products at the intersection of GenAI, Web3, fintech, and great UX
 <!-- END:tagline -->
 
 **[thealchemyst.dev](https://thealchemyst.dev)** &nbsp;·&nbsp; <!-- BEGIN:links -->
-**[linkedin.com/in/ajay-singh-69a083108](https://www.linkedin.com/in/ajay-singh-69a083108/)**
 <!-- END:links --> &nbsp;·&nbsp; **[aksingh1493@gmail.com](mailto:aksingh1493@gmail.com)**
 
 </div>
@@ -75,97 +72,6 @@ The two self-loops are the whole point. A duplicate webhook and a replayed decis
 ## Selected work
 
 <!-- BEGIN:experience -->
-<details open>
-<summary><b>ZoltMoney</b> — Tech Lead, Feb 2025 — Present &nbsp;·&nbsp; <i>Next.js, Go, TypeScript, AWS, GenAI, LLM APIs, CloudFront</i></summary>
-
-<br>
-
-<sub>Bengaluru</sub>
-
-- Solo-architecting and building the entire product from ground up — frontend, backend, and infrastructure
-- Designing and implementing the backend in Go Lang, handling API architecture, business logic, and system design
-- Building the frontend with Next.js and TypeScript for a modern fintech experience
-- Managing cloud infrastructure on AWS — S3, CloudFront, Amplify, Secrets Manager
-- Owning the full product lifecycle: architecture → development → deployment → iteration
-- Leveraging Generative AI for rapid prototyping, AI-assisted development, and accelerated product delivery
-
-</details>
-
-<details>
-<summary><b>Six Sigma Sports (ST Labs)</b> — SDE-3 — Web3, Jun 2022 — Feb 2025 &nbsp;·&nbsp; <i>Remix, React, CosmJS, Web3Auth, gRPC, TypeScript</i></summary>
-
-<br>
-
-<sub>Bengaluru</sub>
-
-- Led frontend architecture for a blockchain-based betting platform on Cosmos (SGE token)
-- Built with Remix (React + Node.js), achieving 40% better engagement and halving load times
-- Integrated Web3Auth, OAuth2, and Synaps KYC — driving 35% engagement increase
-- Implemented DeFi wallet integrations (Keplr, Leap, Cosmostation) across desktop & mobile
-- Architected gRPC-based blockchain data framework powering 2 key projects
-- Published an npm package for Cosmos message composing & broadcasting
-- Built real-time data layer with WebSockets and intelligent fallback mechanisms
-
-</details>
-
-<details>
-<summary><b>Paytm (One97 Communications)</b> — Senior Software Engineer, Mar 2020 — May 2022 &nbsp;·&nbsp; <i>React, JavaScript, Node.js</i></summary>
-
-<br>
-
-<sub>Bengaluru</sub>
-
-- Hotels: Built React-based booking interface → 20% booking increase in 3 months
-- ONDC: Improved platform interoperability by 40% and efficiency by 25%
-- Paytm Mall: Designed return & exchange flow serving 2M+ customers
-- Created email template system reducing design-testing iterations by 50%
-- Seller Panel: Reduced operational issues by 35%, boosted seller satisfaction by 15%
-- Hi5: Built group-buying platform → 30% engagement rise, 50% more transactions in 4 months
-
-</details>
-
-<details>
-<summary><b>Trakinvest</b> — Senior Software Engineer, Sep 2019 — Feb 2020 &nbsp;·&nbsp; <i>React, Gatsby.js, Next.js</i></summary>
-
-<br>
-
-<sub>Bengaluru</sub>
-
-- Revamped React-based trading platform with modern architecture
-- Built Gatsby.js landing page with comprehensive SEO optimization
-- Developed Next.js SSR product for improved performance
-- Automated certificate issuance system
-- Created dynamic event page system — 20% more participation
-
-</details>
-
-<details>
-<summary><b>Good Earth</b> — Software Engineer, Feb 2019 — Aug 2019 &nbsp;·&nbsp; <i>React, OAuth2, Turn.js</i></summary>
-
-<br>
-
-<sub>Delhi</sub>
-
-- Built responsive React pages for the e-commerce platform
-- Implemented OAuth2 social authentication
-- Created interactive book feature using Turn.js
-- Developed address module with map integration
-
-</details>
-
-<details>
-<summary><b>GlobalLogic</b> — Software Engineer, Oct 2016 — Feb 2019 &nbsp;·&nbsp; <i>Ember.js, Angular.js, C#</i></summary>
-
-<br>
-
-<sub>Noida</sub>
-
-- Built Ember.js Employee Consortium Portal for DISA
-- Developed Angular.js Employee Directory application
-- Created CMS system for content management
-- Built C# to Ember model converter tool
-
-</details>
 <!-- END:experience -->
 
 ---
@@ -173,15 +79,6 @@ The two self-loops are the whole point. A duplicate webhook and a replayed decis
 ## Tooling
 
 <!-- BEGIN:stack -->
-| | |
-|---|---|
-| **Frontend** | **JavaScript** · **React.js** · **Next.js** · **TypeScript** · Remix · Gatsby.js |
-| **State Management** | **Redux** · **Context API** · React Query |
-| **Web3 & Blockchain** | CosmJS · Web3Auth · Cosmos Kit · DeFi Wallets · DFNS · Coinbase SDK |
-| **Cloud & DevOps** | AWS S3 · CloudFront · AWS Amplify · Secrets Manager · Webpack · Vite |
-| **Styling** | **Tailwind CSS** · Material UI · Styled Components · Bootstrap |
-| **GenAI & AI Tools** | Prompt Engineering · AI-Assisted Development · LLM Integration · OpenAI API · AI Agents · RAG Systems |
-| **Backend & Languages** | **REST APIs** · Go Lang · Node.js · GraphQL |
 <!-- END:stack -->
 
 ---

@@ -1,0 +1,37 @@
+name: sync from site config
+
+# The portfolio site owns the role and skill data. When it changes, this
+# regenerates the README and commits the result, so the profile updates
+# itself without a manual step.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # weekly, Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Regenerate
+        run: node scripts/generate.mjs
+
+      - name: Commit if the source data changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "no change — site config is unchanged"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Sync README with portfolio site config"
+          git push

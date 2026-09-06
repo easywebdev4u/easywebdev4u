@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 300" width="1100" height="300" role="img" aria-label="Cross-border settlement flow: client to auth to KYC to wallet, splitting into on-chain and fiat rails, converging on a ledger and reconciliation">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d7e9ee"/><stop offset="100%" stop-color="#b6d5dd"/>
+    </linearGradient>
+    <pattern id="g2" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#e9f1f3" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <style><![CDATA[
+    .bg    { fill: #fbfdfe; }
+    .box   { fill: #ffffff; stroke: #cfe2e7; stroke-width: 1.4; rx: 8; }
+    .boxhi { fill: #ecfbfe; stroke: #0891b2; stroke-width: 1.6; rx: 8; }
+    .lbl   { fill: #0b1416; font-size: 14.5px; font-weight: 600; }
+    .sub   { fill: #6b858b; font-size: 11px; letter-spacing: .6px; }
+    .cap   { fill: #7c949a; font-size: 12px; letter-spacing: 3px; }
+    .wire  { fill: none; stroke: url(#edge); stroke-width: 2; }
+    .pkt   { fill: #0891b2; }
+    .pkt2  { fill: #0369a1; }
+
+    /* Packets ride the same paths the wires are drawn from, so the motion
+       always matches the topology - no second copy to keep in sync. */
+    .p1 { offset-path: path("M142,150 H186"); animation: flow 2.2s linear infinite; }
+    .p2 { offset-path: path("M304,150 H348"); animation: flow 2.2s linear infinite .35s; }
+    .p3 { offset-path: path("M466,150 H510"); animation: flow 2.2s linear infinite .7s; }
+    .p4 { offset-path: path("M628,150 C652,150 652,86 676,86"); animation: flow 2.6s linear infinite 1s; }
+    .p5 { offset-path: path("M628,150 C652,150 652,214 676,214"); animation: flow 2.6s linear infinite 1.5s; }
+    .p6 { offset-path: path("M794,86 C818,86 818,150 842,150"); animation: flow 2.6s linear infinite 1.9s; }
+    .p7 { offset-path: path("M794,214 C818,214 818,150 842,150"); animation: flow 2.6s linear infinite 2.4s; }
+
+    @keyframes flow {
+      0%   { offset-distance: 0%;   opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+    @keyframes pulse { 0%,100% { opacity: .45 } 50% { opacity: 1 } }
+    .beat { animation: pulse 3s ease-in-out infinite; }
+
+    /* Respect the reader's motion preference. Static packets still read as
+       a topology diagram, so nothing is lost. */
+    @media (prefers-reduced-motion: reduce) {
+      .p1,.p2,.p3,.p4,.p5,.p6,.p7 { animation: none; offset-distance: 50%; opacity: .95; }
+      .beat { animation: none; opacity: .8; }
+    }
+  ]]></style>
+
+  <rect class="bg" width="1100" height="300"/>
+  <rect width="1100" height="300" fill="url(#g2)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text class="cap" x="26" y="40">CROSS-BORDER SETTLEMENT</text>
+    <text class="sub" x="26" y="62">one API call · seven systems · no shared clock</text>
+
+    <g class="wire">
+      <path d="M142,150 H186"/><path d="M304,150 H348"/><path d="M466,150 H510"/>
+      <path d="M628,150 C652,150 652,86 676,86"/>
+      <path d="M628,150 C652,150 652,214 676,214"/>
+      <path d="M794,86 C818,86 818,150 842,150"/>
+      <path d="M794,214 C818,214 818,150 842,150"/>
+      <path d="M960,150 H986"/>
+    </g>
+
+    <rect class="box"   x="24"  y="124" width="118" height="52"/>
+    <rect class="box"   x="186" y="124" width="118" height="52"/>
+    <rect class="box"   x="348" y="124" width="118" height="52"/>
+    <rect class="box"   x="510" y="124" width="118" height="52"/>
+    <rect class="box"   x="676" y="60"  width="118" height="52"/>
+    <rect class="box"   x="676" y="188" width="118" height="52"/>
+    <rect class="boxhi" x="842" y="124" width="118" height="52"/>
+
+    <g class="lbl" text-anchor="middle">
+      <text x="83"  y="148">Client</text>
+      <text x="245" y="148">Auth</text>
+      <text x="407" y="148">KYC</text>
+      <text x="569" y="148">Wallet</text>
+      <text x="735" y="84">On-chain</text>
+      <text x="735" y="212">Fiat rail</text>
+      <text x="901" y="148">Ledger</text>
+    </g>
+    <g class="sub" text-anchor="middle">
+      <text x="83"  y="166">biometric</text>
+      <text x="245" y="166">otp · nonce</text>
+      <text x="407" y="166">multi-provider</text>
+      <text x="569" y="166">custodial</text>
+      <text x="735" y="102">settlement</text>
+      <text x="735" y="230">payout</text>
+      <text x="901" y="166">source of truth</text>
+    </g>
+
+    <text class="sub" x="994" y="146" fill="#06b6d4">reconcile</text>
+    <text class="sub" x="994" y="162">drift → alert</text>
+  </g>
+
+  <circle class="pkt p1"  r="4"/>
+  <circle class="pkt p2"  r="4"/>
+  <circle class="pkt p3"  r="4"/>
+  <circle class="pkt p4"  r="4"/>
+  <circle class="pkt2 p5" r="4"/>
+  <circle class="pkt p6"  r="4"/>
+  <circle class="pkt2 p7" r="4"/>
+
+  <circle class="beat" cx="901" cy="112" r="3.5" fill="#06b6d4"/>
+</svg>

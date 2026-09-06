@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    # Weekly — catches links that rot after the fact.
-    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -14,26 +11,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: SVG headers are well-formed
-        run: |
-          for f in assets/*.svg; do
-            python3 -c "import xml.dom.minidom,sys; xml.dom.minidom.parse('$f')"
-            echo "ok  $f"
-          done
-
-      - name: Light and dark headers stayed in sync
-        run: |
-          # Structure must match; only the palette may differ. Catches the case
-          # where one variant is edited and the other silently drifts.
-          strip() { grep -oE '<[a-zA-Z/][^ >]*' "$1" | tr -d '<'; }
-          diff <(strip assets/header-dark.svg) <(strip assets/header-light.svg) \
-            && echo "ok  element trees match" \
-            || { echo "::error::header-dark.svg and header-light.svg have diverged"; exit 1; }
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: SVG assets are well-formed
+        run: |
+          for f in assets/*.svg; do
+            python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('$f')"
+            echo "ok  $f"
+          done
+
+      - name: Light and dark variants have not diverged
+        run: |
+          # Compare element trees only: the palette is allowed to differ, the
+          # structure is not. Catches editing one variant and forgetting the other.
+          strip() { grep -oE '<[a-zA-Z/][^ >]*' "$1" | tr -d '<'; }
+          status=0
+          for pair in header architecture; do
+            if diff <(strip "assets/$pair-dark.svg") <(strip "assets/$pair-light.svg") > /dev/null; then
+              echo "ok  $pair variants match"
+            else
+              echo "::error file=assets/$pair-light.svg::$pair-dark and $pair-light have diverged"
+              status=1
+            fi
+          done
+          exit $status
+
+      - name: README is in sync with the site config
+        run: |
+          # The README is generated from the portfolio site's config. If someone
+          # hand-edits README.md, or the site data changes without a regenerate,
+          # this fails and names the drift.
+          node scripts/generate.mjs
+          if ! git diff --quiet -- README.md; then
+            echo "::error::README.md is stale. Run: node scripts/generate.mjs"
+            git diff --stat -- README.md
+            git diff -- README.md | head -60
+            exit 1
+          fi
+          echo "ok  README matches generated output"
 
       - name: Mermaid diagram compiles
         run: |
